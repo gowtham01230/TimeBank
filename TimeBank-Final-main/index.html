@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Time Bank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+            opacity: 0.02;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .dark body::before {
+            opacity: 0.04;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #3a445c;
+            border-radius: 4px;
+        }
+        .light ::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 4px;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Light Theme: "Serene"
+                        'serene-bg': '#F8F7F4',
+                        'serene-panel': '#FFFFFF',
+                        'serene-text-main': '#2F2F2F',
+                        'serene-text-subtle': '#6B7280',
+                        'serene-border': 'rgba(0, 0, 0, 0.08)',
+                        'serene-accent': '#1A472A', // Forest Green
+                        'serene-accent-hover': '#133520',
+                        'serene-accent-content': '#FFFFFF',
+
+                        // Dark Theme: "Nocturne"
+                        'nocturne-bg': '#121826',
+                        'nocturne-panel': '#1C2333',
+                        'nocturne-text-main': '#E3E3E3',
+                        'nocturne-text-subtle': '#8B949E',
+                        'nocturne-border': 'rgba(255, 255, 255, 0.1)',
+                        'nocturne-accent': '#E0B841', // Muted Gold
+                        'nocturne-accent-hover': '#C9A539',
+                        'nocturne-accent-content': '#121826',
+                        
+                        'success': '#16A34A',
+                        'error': '#DC2626',
+                        'warning': '#F59E0B', // Amber
+                    },
+                    boxShadow: {
+                       'zenith-sm': '0 2px 4px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04)',
+                       'zenith': '0 4px 8px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05)',
+                       'zenith-lg': '0 10px 20px rgba(0,0,0,0.04), 0 5px 10px rgba(0,0,0,0.06)',
+                    },
+                    animation: {
+                       'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                       'fade-in-up': {
+                           '0%': { opacity: '0', transform: 'translateY(10px)' },
+                           '100%': { opacity: '1', transform: 'translateY(0)' },
+                       }
+                    }
+                }
+            }
+        }
+    </script>
+     <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.1.1",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+        "react/": "https://aistudiocdn.com/react@^19.1.1/",
+        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.2",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+        "framer-motion": "https://aistudiocdn.com/framer-motion@^11.3.19"
+      }
+    }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-serene-bg dark:bg-nocturne-bg text-serene-text-main dark:text-nocturne-text-main transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

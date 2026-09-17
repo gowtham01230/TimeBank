@@ -1,0 +1,5 @@
+{
+  "name": "Community Time Bank",
+  "description": "A web application that allows community members to exchange services using time credits as a currency. Users can post services, request work, and manage their time balance.",
+  "requestFramePermissions": []
+}
